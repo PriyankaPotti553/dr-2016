@@ -1,1 +1,26 @@
-this is vk
+import java.util.*;
+//import java.util.HashMap;
+class countLen{
+    public static int countOfUniqueChars(String st){
+        int ans = 0;
+        HashMap<Character,Integer> hm = new HashMap<>();
+        for(char ch : st.toCharArray()){
+            hm.put(ch,hm.getOrDefault(ch,0)+1);
+        }
+        for(Character ptr:hm.keySet()){
+            System.out.println(ptr+" : "+hm.get(ptr));
+        }
+        for(int count:hm.values()){
+            if(count==1){
+                ans++;
+            }
+        }
+        return ans;
+    }
+    public static void main(String[] args){
+        Scanner s = new Scanner(System.in);
+        String str = s.nextLine();
+        int q = countOfUniqueChars(str);
+        System.out.println(q);
+    }
+}
