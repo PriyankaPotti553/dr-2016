@@ -1,0 +1,42 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Codechef
+{
+	public static void main (String[] args) 
+	{
+		// your code goes here
+		Scanner s = new Scanner(System.in);
+		int n = s.nextInt();
+		String[] str = new String[n];
+		for(int i=0;i<n;i++){
+		    str[i]=s.next();
+		}
+		Stack<Integer> st = new Stack<>();
+		for(String op:str){
+		    if(op.equals("C")){
+		        st.pop();
+		    }
+		    else if(op.equals("D")){
+		        st.push(st.peek()*2);
+		    }
+		    else if(op.equals("+")){
+		        int last = st.pop();
+		        int secondLast = st.peek();
+		        int newScore = last+secondLast;
+		        st.push(last);
+		        st.push(newScore);
+		    }
+		    else{
+		        st.push(Integer.parseInt(op));
+		    }
+		}
+		int sum = 0;
+		for(int ans:st){
+		    sum+=ans;
+		}
+		System.out.println(sum);
+		s.close();
+	}
+}
