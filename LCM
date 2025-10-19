@@ -1,0 +1,25 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		Scanner s = new Scanner(System.in);
+		int a = s.nextInt();
+		int b = s.nextInt();
+		int result = gcd(a,b);
+		int lcm = (a*b)/result;
+		System.out.println(lcm);
+	}
+	public static int gcd(int x,int y){
+	    while(y!=0){
+	        int temp = y;
+	        y = x%y;
+	        x=temp;
+	    }
+	    return x;
+	}
+}
